@@ -24,6 +24,11 @@ function getQuote() {
 
 nextBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    inputElm.value = null;
+    timerElm.innerText = 0;
+    txtElm.innerHTML = null;
+    inputElm.disabled = true;
+    inputElm.classList.add("dis");
     generate();
 });
 
@@ -49,7 +54,14 @@ inputElm.addEventListener("input", () => {
         }
     });
 
-    if (done) generate();
+    if (done) {
+        inputElm.value = null;
+        timerElm.innerText = 0;
+        txtElm.innerHTML = null;
+        inputElm.disabled = true;
+        inputElm.classList.add("dis");
+        generate();
+    };
 });
 
 async function generate() {
