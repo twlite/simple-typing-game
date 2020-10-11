@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #333640;
+    color: #FFFFFF;
+    font-family: "Sansita Swashed", cursive;
+}
+
+#timer {
+    font-size: 10rem;
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+hr {
+    background-color: aliceblue;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#text {
+    font-size: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.inputField {
+    margin-top: 3rem;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#input {
+    width: 95%;
+    height: 20vh;
+    border-radius: 5px;
+    resize: none;
+    border: 5px solid #91a5e7;
+    background-color: #2b2c31;
+    color: #FFFFFF;
+    font-size: 2rem;
+    padding: 1.5rem;
+    font-family: "Sansita Swashed", cursive;
+}
+
+#input:focus {
+    outline: 0px;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+}
+
+.correct {
+    color: #35c230;
+}
+
+.incorrect {
+    color: #ff3131;
+    text-decoration: line-through;
+}
+
+.dis {
+    cursor: not-allowed;
+}
+
+.button {
+    outline: none;
+    width: 30%;
+    height: 3rem;
+    background-color: #7289da;
+    color: #FFFFFF;
+    font-family: "Sansita Swashed", cursive;
+    font-size: 25px;
+    border: none;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 1rem;
+    margin-left: 65%;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.button:hover {
+    background-color: #4d5e94;
+    transition: 0.5s;
+}
