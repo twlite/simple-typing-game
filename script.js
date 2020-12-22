@@ -2,8 +2,9 @@ const timerElm = document.getElementById("timer");
 const txtElm = document.getElementById("text");
 const inputElm = document.getElementById("input");
 const nextBtn = document.getElementById("nextButton");
-const API = "https://api.quotable.io/random";
+const API = "http://api.quotable.io/random";
 let TIMER;
+let textIndex = 0;
 
 function getQuote() {
     return new Promise((resolve) => {
@@ -24,13 +25,30 @@ function getQuote() {
 
 nextBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    inputElm.value = null;
-    timerElm.innerText = 0;
-    txtElm.innerHTML = null;
-    inputElm.disabled = true;
-    inputElm.classList.add("dis");
-    generate();
+
+    const quotes = document.querySelectorAll("span");
+    if (!quotes.length) return alert("Something went wrong!");
+    inputElm.value = "";
+    typeQuote();
 });
+
+function typeQuote() {
+    const quotes = document.querySelectorAll("span");
+    if (!quotes.length) return console.warn("Something went wrong!");
+
+    const text = Array.from(quotes).map(m => m.innerText).join("");
+
+    if (textIndex < text.length) {
+        inputElm.value += text.charAt(textIndex);
+        textIndex++;
+
+        setTimeout(typeQuote, 50);
+    } else {
+        textIndex = 0;
+    }
+    const event = new Event("input");
+    inputElm.dispatchEvent(event);
+}
 
 inputElm.addEventListener("input", () => {
     const quotes = document.querySelectorAll("span");
@@ -54,14 +72,7 @@ inputElm.addEventListener("input", () => {
         }
     });
 
-    if (done) {
-        inputElm.value = null;
-        timerElm.innerText = 0;
-        txtElm.innerHTML = null;
-        inputElm.disabled = true;
-        inputElm.classList.add("dis");
-        generate();
-    };
+    if (done) generate();
 });
 
 async function generate() {
