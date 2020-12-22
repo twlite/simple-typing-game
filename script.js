@@ -2,7 +2,7 @@ const timerElm = document.getElementById("timer");
 const txtElm = document.getElementById("text");
 const inputElm = document.getElementById("input");
 const nextBtn = document.getElementById("nextButton");
-const API = "http://api.quotable.io/random";
+const API = "https://api.quotable.io/random";
 let TIMER;
 let textIndex = 0;
 
